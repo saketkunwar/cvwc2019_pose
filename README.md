@@ -22,3 +22,8 @@ ex python gen_test_imageinfo.py <path-to-test-dir>
 
 Git large file storage (git lfs) was used to store the large model file weights, so ensure it is installed.
 This repo contains all necessary weights.
+
+Running the script ./train_tiger.sh will train the model
+Running the script ./test_tiger will give store results in  output/tiger/pose_hrnet/w32_288x384_adam_lr1e-3/results
+
+For validaton or other param changes edit the /experiments/tiger/hrnet/w32_288x384_adam_lr1e-3.yaml file
