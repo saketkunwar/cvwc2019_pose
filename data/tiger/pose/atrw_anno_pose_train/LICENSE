@@ -1,0 +1,15 @@
+LICENSE
+
+The ATRW dataset is available to download for non-commercial/research purposes under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC-BY-NC-SA 4.0) International License. More details about CC-BY-NC-SA 4.0, please refer to https://creativecommons.org/licenses/by-nc-sa/4.0/. 
+
+COPYRIGHT
+
+All new contributions:
+-The ATRW datasets with image frames derived from the orignal video-clip dataset with additional mannual annotations.
+Copyright (c) 2019, Shuyuan Li (SJTU), Jainguo Li (Intel), Weiyao Lin (SJTU), Hanlin Tang (Intel).
+All rights reserved.
+
+All contributions:
+-Original videp-clip dataset.
+ Copyright (c) 2018, MakerCollider.com and WWF Amur tiger and leopard conservation programme team.
+All rights reserved.

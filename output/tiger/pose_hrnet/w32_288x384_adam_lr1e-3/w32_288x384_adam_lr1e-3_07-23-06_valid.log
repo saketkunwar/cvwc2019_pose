@@ -1,0 +1,460 @@
+2019-07-23 06:33:50,204 Namespace(cfg='experiments/tiger/hrnet/w32_288x384_adam_lr1e-3.yaml', dataDir='', is_test=False, logDir='', modelDir='', opts=[], prevModelDir='', test_dir='')
+2019-07-23 06:33:50,204 AUTO_RESUME: True
+CUDNN:
+  BENCHMARK: False
+  DETERMINISTIC: False
+  ENABLED: False
+DATASET:
+  COLOR_RGB: True
+  DATASET: tiger
+  DATA_FORMAT: jpg
+  FLIP: False
+  HYBRID_JOINTS_TYPE: 
+  NUM_JOINTS_HALF_BODY: 8
+  PROB_HALF_BODY: 0.3
+  ROOT: data/tiger/pose/
+  ROT_FACTOR: 25
+  SCALE_FACTOR: 0.35
+  SELECT_DATA: False
+  TEST_SET: val
+  TRAIN_SET: train
+DATA_DIR: 
+DEBUG:
+  DEBUG: True
+  SAVE_BATCH_IMAGES_GT: True
+  SAVE_BATCH_IMAGES_PRED: True
+  SAVE_HEATMAPS_GT: True
+  SAVE_HEATMAPS_PRED: True
+GPUS: (0,)
+LOG_DIR: log
+LOSS:
+  TOPK: 8
+  USE_DIFFERENT_JOINTS_WEIGHT: False
+  USE_OHKM: False
+  USE_TARGET_WEIGHT: False
+MODEL:
+  EXTRA:
+    FINAL_CONV_KERNEL: 1
+    PRETRAINED_LAYERS: ['conv1', 'bn1', 'conv2', 'bn2', 'layer1', 'transition1', 'stage2', 'transition2', 'stage3', 'transition3', 'stage4']
+    STAGE2:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [4, 4]
+      NUM_BRANCHES: 2
+      NUM_CHANNELS: [32, 64]
+      NUM_MODULES: 1
+    STAGE3:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [4, 4, 4]
+      NUM_BRANCHES: 3
+      NUM_CHANNELS: [32, 64, 128]
+      NUM_MODULES: 4
+    STAGE4:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [4, 4, 4, 4]
+      NUM_BRANCHES: 4
+      NUM_CHANNELS: [32, 64, 128, 256]
+      NUM_MODULES: 3
+  HEATMAP_SIZE: [96, 72]
+  IMAGE_SIZE: [384, 288]
+  INIT_WEIGHTS: True
+  NAME: pose_hrnet
+  NUM_JOINTS: 15
+  PRETRAINED: models/pytorch/imagenet/hrnet_w32-36af842e.pth
+  SIGMA: 3
+  TAG_PER_JOINT: True
+  TARGET_TYPE: gaussian
+OUTPUT_DIR: output
+PIN_MEMORY: True
+PRINT_FREQ: 40
+RANK: 0
+TEST:
+  BATCH_SIZE_PER_GPU: 8
+  BBOX_THRE: 1.0
+  COCO_BBOX_FILE: data/tiger/pose/atrw_anno_pose_train/keypoint_val.json
+  FLIP_TEST: False
+  IMAGE_THRE: 0.0
+  IN_VIS_THRE: 0.0
+  MODEL_FILE: output/tiger/pose_hrnet/w32_288x384_adam_lr1e-3/model_best.pth
+  NMS_THRE: 1.0
+  OKS_THRE: 0.9
+  POST_PROCESS: True
+  SHIFT_HEATMAP: True
+  SOFT_NMS: False
+  USE_GT_BBOX: False
+TRAIN:
+  BATCH_SIZE_PER_GPU: 8
+  BEGIN_EPOCH: 0
+  CHECKPOINT: 
+  END_EPOCH: 20
+  GAMMA1: 0.99
+  GAMMA2: 0.0
+  LR: 0.001
+  LR_FACTOR: 0.1
+  LR_STEP: [10, 15]
+  MOMENTUM: 0.9
+  NESTEROV: False
+  OPTIMIZER: adam
+  RESUME: False
+  SHUFFLE: True
+  WD: 0.0001
+WORKERS: 2
+2019-07-23 06:33:50,484 => loading model from output/tiger/pose_hrnet/w32_288x384_adam_lr1e-3/model_best.pth
+2019-07-23 06:33:58,084 => classes: ['__background__', 'tiger']
+2019-07-23 06:33:58,084 => num_images: 515
+2019-07-23 06:33:58,125 => Total boxes: 515
+2019-07-23 06:33:58,133 => Total boxes after fliter low score@0.0: 515
+2019-07-23 06:33:58,133 => load 515 samples
+2019-07-23 06:33:58,824 Test: [0/65]	Time 0.683 (0.683)	Loss 0.0032 (0.0032)	Accuracy 0.000 (0.000)
+2019-07-23 06:34:10,103 Test: [40/65]	Time 0.274 (0.292)	Loss 0.0032 (0.0033)	Accuracy 0.000 (0.000)
+2019-07-23 06:34:16,786 => writing results json to output/tiger/pose_hrnet/w32_288x384_adam_lr1e-3/results/keypoints_val_results_0.json
+2019-07-23 06:34:17,206 | Arch | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
+2019-07-23 06:34:17,207 |---|---|---|---|---|---|---|---|---|---|---|
+2019-07-23 06:34:17,207 | pose_hrnet | 0.923 | 0.975 | 0.959 | -1.000 | 0.923 | 0.948 | 0.988 | 0.974 | -1.000 | 0.948 |
+2019-07-23 06:36:28,329 Namespace(cfg='experiments/tiger/hrnet/w32_288x384_adam_lr1e-3.yaml', dataDir='', is_test=False, logDir='', modelDir='', opts=[], prevModelDir='', test_dir='')
+2019-07-23 06:36:28,329 AUTO_RESUME: True
+CUDNN:
+  BENCHMARK: False
+  DETERMINISTIC: False
+  ENABLED: False
+DATASET:
+  COLOR_RGB: True
+  DATASET: tiger
+  DATA_FORMAT: jpg
+  FLIP: False
+  HYBRID_JOINTS_TYPE: 
+  NUM_JOINTS_HALF_BODY: 8
+  PROB_HALF_BODY: 0.3
+  ROOT: data/tiger/pose/
+  ROT_FACTOR: 25
+  SCALE_FACTOR: 0.35
+  SELECT_DATA: False
+  TEST_SET: val
+  TRAIN_SET: train
+DATA_DIR: 
+DEBUG:
+  DEBUG: True
+  SAVE_BATCH_IMAGES_GT: True
+  SAVE_BATCH_IMAGES_PRED: True
+  SAVE_HEATMAPS_GT: True
+  SAVE_HEATMAPS_PRED: True
+GPUS: (0,)
+LOG_DIR: log
+LOSS:
+  TOPK: 8
+  USE_DIFFERENT_JOINTS_WEIGHT: False
+  USE_OHKM: False
+  USE_TARGET_WEIGHT: False
+MODEL:
+  EXTRA:
+    FINAL_CONV_KERNEL: 1
+    PRETRAINED_LAYERS: ['conv1', 'bn1', 'conv2', 'bn2', 'layer1', 'transition1', 'stage2', 'transition2', 'stage3', 'transition3', 'stage4']
+    STAGE2:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [4, 4]
+      NUM_BRANCHES: 2
+      NUM_CHANNELS: [32, 64]
+      NUM_MODULES: 1
+    STAGE3:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [4, 4, 4]
+      NUM_BRANCHES: 3
+      NUM_CHANNELS: [32, 64, 128]
+      NUM_MODULES: 4
+    STAGE4:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [4, 4, 4, 4]
+      NUM_BRANCHES: 4
+      NUM_CHANNELS: [32, 64, 128, 256]
+      NUM_MODULES: 3
+  HEATMAP_SIZE: [96, 72]
+  IMAGE_SIZE: [384, 288]
+  INIT_WEIGHTS: True
+  NAME: pose_hrnet
+  NUM_JOINTS: 15
+  PRETRAINED: models/pytorch/imagenet/hrnet_w32-36af842e.pth
+  SIGMA: 3
+  TAG_PER_JOINT: True
+  TARGET_TYPE: gaussian
+OUTPUT_DIR: output
+PIN_MEMORY: True
+PRINT_FREQ: 40
+RANK: 0
+TEST:
+  BATCH_SIZE_PER_GPU: 8
+  BBOX_THRE: 1.0
+  COCO_BBOX_FILE: data/tiger/pose/atrw_anno_pose_train/keypoint_val.json
+  FLIP_TEST: True
+  IMAGE_THRE: 0.0
+  IN_VIS_THRE: 0.0
+  MODEL_FILE: output/tiger/pose_hrnet/w32_288x384_adam_lr1e-3/model_best.pth
+  NMS_THRE: 1.0
+  OKS_THRE: 0.9
+  POST_PROCESS: True
+  SHIFT_HEATMAP: True
+  SOFT_NMS: False
+  USE_GT_BBOX: False
+TRAIN:
+  BATCH_SIZE_PER_GPU: 8
+  BEGIN_EPOCH: 0
+  CHECKPOINT: 
+  END_EPOCH: 20
+  GAMMA1: 0.99
+  GAMMA2: 0.0
+  LR: 0.001
+  LR_FACTOR: 0.1
+  LR_STEP: [10, 15]
+  MOMENTUM: 0.9
+  NESTEROV: False
+  OPTIMIZER: adam
+  RESUME: False
+  SHUFFLE: True
+  WD: 0.0001
+WORKERS: 2
+2019-07-23 06:36:28,577 => loading model from output/tiger/pose_hrnet/w32_288x384_adam_lr1e-3/model_best.pth
+2019-07-23 06:36:30,987 => classes: ['__background__', 'tiger']
+2019-07-23 06:36:30,987 => num_images: 515
+2019-07-23 06:36:31,017 => Total boxes: 515
+2019-07-23 06:36:31,024 => Total boxes after fliter low score@0.0: 515
+2019-07-23 06:36:31,025 => load 515 samples
+2019-07-23 06:36:31,709 Test: [0/65]	Time 0.678 (0.678)	Loss 0.0027 (0.0027)	Accuracy 0.000 (0.000)
+2019-07-23 06:36:53,169 Test: [40/65]	Time 0.535 (0.540)	Loss 0.0027 (0.0027)	Accuracy 0.000 (0.000)
+2019-07-23 06:37:05,915 => writing results json to output/tiger/pose_hrnet/w32_288x384_adam_lr1e-3/results/keypoints_val_results_0.json
+2019-07-23 06:37:06,335 | Arch | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
+2019-07-23 06:37:06,336 |---|---|---|---|---|---|---|---|---|---|---|
+2019-07-23 06:37:06,336 | pose_hrnet | 0.327 | 0.944 | 0.083 | -1.000 | 0.328 | 0.431 | 0.965 | 0.271 | -1.000 | 0.431 |
+2019-07-23 06:40:46,283 Namespace(cfg='experiments/tiger/hrnet/w32_288x384_adam_lr1e-3.yaml', dataDir='', is_test=False, logDir='', modelDir='', opts=[], prevModelDir='', test_dir='')
+2019-07-23 06:40:46,283 AUTO_RESUME: True
+CUDNN:
+  BENCHMARK: False
+  DETERMINISTIC: False
+  ENABLED: False
+DATASET:
+  COLOR_RGB: True
+  DATASET: tiger
+  DATA_FORMAT: jpg
+  FLIP: False
+  HYBRID_JOINTS_TYPE: 
+  NUM_JOINTS_HALF_BODY: 8
+  PROB_HALF_BODY: 0.3
+  ROOT: data/tiger/pose/
+  ROT_FACTOR: 25
+  SCALE_FACTOR: 0.35
+  SELECT_DATA: False
+  TEST_SET: val
+  TRAIN_SET: train
+DATA_DIR: 
+DEBUG:
+  DEBUG: True
+  SAVE_BATCH_IMAGES_GT: True
+  SAVE_BATCH_IMAGES_PRED: True
+  SAVE_HEATMAPS_GT: True
+  SAVE_HEATMAPS_PRED: True
+GPUS: (0,)
+LOG_DIR: log
+LOSS:
+  TOPK: 8
+  USE_DIFFERENT_JOINTS_WEIGHT: False
+  USE_OHKM: False
+  USE_TARGET_WEIGHT: False
+MODEL:
+  EXTRA:
+    FINAL_CONV_KERNEL: 1
+    PRETRAINED_LAYERS: ['conv1', 'bn1', 'conv2', 'bn2', 'layer1', 'transition1', 'stage2', 'transition2', 'stage3', 'transition3', 'stage4']
+    STAGE2:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [4, 4]
+      NUM_BRANCHES: 2
+      NUM_CHANNELS: [32, 64]
+      NUM_MODULES: 1
+    STAGE3:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [4, 4, 4]
+      NUM_BRANCHES: 3
+      NUM_CHANNELS: [32, 64, 128]
+      NUM_MODULES: 4
+    STAGE4:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [4, 4, 4, 4]
+      NUM_BRANCHES: 4
+      NUM_CHANNELS: [32, 64, 128, 256]
+      NUM_MODULES: 3
+  HEATMAP_SIZE: [96, 72]
+  IMAGE_SIZE: [384, 288]
+  INIT_WEIGHTS: True
+  NAME: pose_hrnet
+  NUM_JOINTS: 15
+  PRETRAINED: models/pytorch/imagenet/hrnet_w32-36af842e.pth
+  SIGMA: 3
+  TAG_PER_JOINT: True
+  TARGET_TYPE: gaussian
+OUTPUT_DIR: output
+PIN_MEMORY: True
+PRINT_FREQ: 40
+RANK: 0
+TEST:
+  BATCH_SIZE_PER_GPU: 8
+  BBOX_THRE: 1.0
+  COCO_BBOX_FILE: data/tiger/pose/atrw_anno_pose_train/keypoint_val.json
+  FLIP_TEST: True
+  IMAGE_THRE: 0.0
+  IN_VIS_THRE: 0.0
+  MODEL_FILE: output/tiger/pose_hrnet/w32_288x384_adam_lr1e-3/model_best.pth
+  NMS_THRE: 1.0
+  OKS_THRE: 0.9
+  POST_PROCESS: True
+  SHIFT_HEATMAP: True
+  SOFT_NMS: False
+  USE_GT_BBOX: False
+TRAIN:
+  BATCH_SIZE_PER_GPU: 8
+  BEGIN_EPOCH: 0
+  CHECKPOINT: 
+  END_EPOCH: 20
+  GAMMA1: 0.99
+  GAMMA2: 0.0
+  LR: 0.001
+  LR_FACTOR: 0.1
+  LR_STEP: [10, 15]
+  MOMENTUM: 0.9
+  NESTEROV: False
+  OPTIMIZER: adam
+  RESUME: False
+  SHUFFLE: True
+  WD: 0.0001
+WORKERS: 2
+2019-07-23 06:40:46,530 => loading model from output/tiger/pose_hrnet/w32_288x384_adam_lr1e-3/model_best.pth
+2019-07-23 06:40:48,939 => classes: ['__background__', 'tiger']
+2019-07-23 06:40:48,939 => num_images: 515
+2019-07-23 06:40:48,969 => Total boxes: 515
+2019-07-23 06:40:48,977 => Total boxes after fliter low score@0.0: 515
+2019-07-23 06:40:48,977 => load 515 samples
+2019-07-23 06:40:49,661 Test: [0/65]	Time 0.678 (0.678)	Loss 0.0028 (0.0028)	Accuracy 0.000 (0.000)
+2019-07-23 06:41:11,154 Test: [40/65]	Time 0.534 (0.541)	Loss 0.0028 (0.0028)	Accuracy 0.000 (0.000)
+2019-07-23 06:41:23,880 => writing results json to output/tiger/pose_hrnet/w32_288x384_adam_lr1e-3/results/keypoints_val_results_0.json
+2019-07-23 06:41:24,301 | Arch | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
+2019-07-23 06:41:24,301 |---|---|---|---|---|---|---|---|---|---|---|
+2019-07-23 06:41:24,301 | pose_hrnet | 0.572 | 0.972 | 0.612 | -1.000 | 0.572 | 0.645 | 0.985 | 0.720 | -1.000 | 0.645 |
+2019-07-23 06:44:28,355 Namespace(cfg='experiments/tiger/hrnet/w32_288x384_adam_lr1e-3.yaml', dataDir='', is_test=False, logDir='', modelDir='', opts=[], prevModelDir='', test_dir='')
+2019-07-23 06:44:28,355 AUTO_RESUME: True
+CUDNN:
+  BENCHMARK: False
+  DETERMINISTIC: False
+  ENABLED: False
+DATASET:
+  COLOR_RGB: True
+  DATASET: tiger
+  DATA_FORMAT: jpg
+  FLIP: False
+  HYBRID_JOINTS_TYPE: 
+  NUM_JOINTS_HALF_BODY: 8
+  PROB_HALF_BODY: 0.3
+  ROOT: data/tiger/pose/
+  ROT_FACTOR: 25
+  SCALE_FACTOR: 0.35
+  SELECT_DATA: False
+  TEST_SET: val
+  TRAIN_SET: train
+DATA_DIR: 
+DEBUG:
+  DEBUG: True
+  SAVE_BATCH_IMAGES_GT: True
+  SAVE_BATCH_IMAGES_PRED: True
+  SAVE_HEATMAPS_GT: True
+  SAVE_HEATMAPS_PRED: True
+GPUS: (0,)
+LOG_DIR: log
+LOSS:
+  TOPK: 8
+  USE_DIFFERENT_JOINTS_WEIGHT: False
+  USE_OHKM: False
+  USE_TARGET_WEIGHT: False
+MODEL:
+  EXTRA:
+    FINAL_CONV_KERNEL: 1
+    PRETRAINED_LAYERS: ['conv1', 'bn1', 'conv2', 'bn2', 'layer1', 'transition1', 'stage2', 'transition2', 'stage3', 'transition3', 'stage4']
+    STAGE2:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [4, 4]
+      NUM_BRANCHES: 2
+      NUM_CHANNELS: [32, 64]
+      NUM_MODULES: 1
+    STAGE3:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [4, 4, 4]
+      NUM_BRANCHES: 3
+      NUM_CHANNELS: [32, 64, 128]
+      NUM_MODULES: 4
+    STAGE4:
+      BLOCK: BASIC
+      FUSE_METHOD: SUM
+      NUM_BLOCKS: [4, 4, 4, 4]
+      NUM_BRANCHES: 4
+      NUM_CHANNELS: [32, 64, 128, 256]
+      NUM_MODULES: 3
+  HEATMAP_SIZE: [96, 72]
+  IMAGE_SIZE: [384, 288]
+  INIT_WEIGHTS: True
+  NAME: pose_hrnet
+  NUM_JOINTS: 15
+  PRETRAINED: models/pytorch/imagenet/hrnet_w32-36af842e.pth
+  SIGMA: 3
+  TAG_PER_JOINT: True
+  TARGET_TYPE: gaussian
+OUTPUT_DIR: output
+PIN_MEMORY: True
+PRINT_FREQ: 40
+RANK: 0
+TEST:
+  BATCH_SIZE_PER_GPU: 8
+  BBOX_THRE: 1.0
+  COCO_BBOX_FILE: data/tiger/pose/atrw_anno_pose_train/keypoint_val.json
+  FLIP_TEST: False
+  IMAGE_THRE: 0.0
+  IN_VIS_THRE: 0.0
+  MODEL_FILE: output/tiger/pose_hrnet/w32_288x384_adam_lr1e-3/model_best.pth
+  NMS_THRE: 1.0
+  OKS_THRE: 0.9
+  POST_PROCESS: True
+  SHIFT_HEATMAP: True
+  SOFT_NMS: False
+  USE_GT_BBOX: False
+TRAIN:
+  BATCH_SIZE_PER_GPU: 8
+  BEGIN_EPOCH: 0
+  CHECKPOINT: 
+  END_EPOCH: 20
+  GAMMA1: 0.99
+  GAMMA2: 0.0
+  LR: 0.001
+  LR_FACTOR: 0.1
+  LR_STEP: [10, 15]
+  MOMENTUM: 0.9
+  NESTEROV: False
+  OPTIMIZER: adam
+  RESUME: False
+  SHUFFLE: True
+  WD: 0.0001
+WORKERS: 2
+2019-07-23 06:44:28,604 => loading model from output/tiger/pose_hrnet/w32_288x384_adam_lr1e-3/model_best.pth
+2019-07-23 06:44:31,005 => classes: ['__background__', 'tiger']
+2019-07-23 06:44:31,005 => num_images: 515
+2019-07-23 06:44:31,035 => Total boxes: 515
+2019-07-23 06:44:31,042 => Total boxes after fliter low score@0.0: 515
+2019-07-23 06:44:31,042 => load 515 samples
+2019-07-23 06:44:31,463 Test: [0/65]	Time 0.413 (0.413)	Loss 0.0032 (0.0032)	Accuracy 0.000 (0.000)
+2019-07-23 06:44:42,574 Test: [40/65]	Time 0.269 (0.281)	Loss 0.0032 (0.0033)	Accuracy 0.000 (0.000)
+2019-07-23 06:44:49,145 => writing results json to output/tiger/pose_hrnet/w32_288x384_adam_lr1e-3/results/keypoints_val_results_0.json
+2019-07-23 06:44:49,572 | Arch | AP | Ap .5 | AP .75 | AP (M) | AP (L) | AR | AR .5 | AR .75 | AR (M) | AR (L) |
+2019-07-23 06:44:49,572 |---|---|---|---|---|---|---|---|---|---|---|
+2019-07-23 06:44:49,572 | pose_hrnet | 0.923 | 0.975 | 0.959 | -1.000 | 0.923 | 0.948 | 0.988 | 0.974 | -1.000 | 0.948 |
