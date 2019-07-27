@@ -14,8 +14,8 @@ Data is not here and must be downloaded from https://cvwc2019.github.io/challeng
 This must be put in data/tiger/pose/. It should have train, val and test folders.
 including 'atrw_anno_pose_train' which contains the ground truth.
 
-image_info_test.json contains image info for the test. This is generated
+image_info_test.json contains image info for the test-set. This was generated
 by gen_test_imageinfo.py.
-On new test set this should be generated again to point to relevant directory.
 
+On new test-set this should be generated again.
 ex python gen_test_imageinfo.py <path-to-test-dir>
