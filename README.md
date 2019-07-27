@@ -19,3 +19,6 @@ by gen_test_imageinfo.py.
 
 On new test-set this should be generated again.
 ex python gen_test_imageinfo.py <path-to-test-dir>
+
+Git large file storage (git lfs) was used to store the large model file weights, so ensure it is installed.
+This repo contains all necessary weights.
